@@ -12,6 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Facebook, Mail } from "lucide-react";
+import React from "react";
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({

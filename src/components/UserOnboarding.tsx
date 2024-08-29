@@ -12,6 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CheckCircle2, Rocket, Users } from "lucide-react";
+import React from "react";
 
 interface UserOnboardingProps {
   isOpen: boolean;
