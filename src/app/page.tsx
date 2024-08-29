@@ -20,7 +20,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-gray-100">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-50">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
         <div className=" w-full max-w-md">
           <p>Hello</p>
