@@ -13,7 +13,15 @@ import {
 } from "@/components/ui/card";
 import { CheckCircle2, Rocket, Users } from "lucide-react";
 
-export default function Component() {
+interface UserOnboardingProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function UserOnboarding({
+  isOpen,
+  onClose,
+}: UserOnboardingProps) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
@@ -36,6 +44,8 @@ export default function Component() {
   const handlePrevious = () => {
     setStep((prevStep) => prevStep - 1);
   };
+
+  if (!isOpen) return null;
 
   const renderStep = () => {
     switch (step) {
@@ -161,7 +171,7 @@ export default function Component() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <Card className="w-full max-w-lg">
         <div className="p-4">
           <div className="flex justify-between mb-4">
@@ -184,8 +194,8 @@ export default function Component() {
           >
             Previous
           </Button>
-          <Button onClick={handleNext} disabled={step === 4}>
-            {step === 3 ? "Finish" : "Next"}
+          <Button onClick={step === 4 ? onClose : handleNext}>
+            {step === 3 ? "Finish" : step === 4 ? "Close" : "Next"}
           </Button>
         </CardFooter>
       </Card>
